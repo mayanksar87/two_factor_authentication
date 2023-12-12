@@ -1,0 +1,11 @@
+<h1>Enter OTP</h1>
+
+<% if flash[:error].present? %>
+  <p class="flash-error"><%= flash[:error] %></p>
+<% end %>
+
+<form action="/verify_otp" method="post">
+  <label for="otp">OTP:</label>
+  <input type="text" id="otp" name="otp" required="true">
+  <input type="submit" value="Verify OTP">
+</form>

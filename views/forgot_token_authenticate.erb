@@ -1,0 +1,11 @@
+<h1>Enter Token</h1>
+
+<% if flash[:error].present? %>
+  <p class="flash-error"><%= flash[:error] %></p>
+<% end %>
+
+<form action="/verify_forgot_password_token" method="post">  
+  <label for="password_reset_token">Token:</label>
+  <input type="text" id="password_reset_token" name="password_reset_token" required="true">
+  <input type="submit" value="Verify Token">
+</form>

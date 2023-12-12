@@ -1,0 +1,27 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  
+development:
+  <<: *default
+  adapter: postgresql
+  database: database
+  username: developer
+  password: password
+  host: localhost
+
+test:
+  <<: *default
+  database: two_fa_authentication_app_test
+  username: postgres
+  password: postgres
+  host: localhost
+
+production:
+  <<: *default
+  database: two_fa_authentication_app_production
+  username: two_fa_authentication_app
+  password: <%= ENV["TWO_FA_AUTHENTICATION_APP_DATABASE_PASSWORD"] %>  
